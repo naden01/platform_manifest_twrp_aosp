@@ -16,22 +16,18 @@
 
     <remove-project name="platform/build" />
     <remove-project name="platform/build/soong" />
-
-<!--
     <remove-project name="platform/external/icu" />
     <remove-project name="platform/external/libxml2" />
     <remove-project name="platform/external/sqlite" />
-    <remove-project name="platform/packages/modules/adb" />
     <remove-project name="platform/system/core" />
     <remove-project name="platform/system/libhidl" />
-    <remove-project name="platform/system/libhwbinder" />
     <remove-project name="platform/system/security" />
     <remove-project name="platform/system/update_engine" />
     <remove-project name="platform/system/vold" />
--->
-
-    <!-- We need the LOS forks of these repos -->
+    <remove-project name="platform/cts" />
     <remove-project name="platform/hardware/interfaces"/>
+    <remove-project name="platform/system/extras"/>
+
 <!--
     <remove-project name="platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" />
     <remove-project name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" />
@@ -54,21 +50,17 @@
         <linkfile src="root.bp" dest="Android.bp"/>
         <linkfile src="bootstrap.bash" dest="bootstrap.bash"/>
     </project>
-<!--
     <project path="external/icu" name="android_external_icu" remote="TeamWin" revision="android-14"/>
     <project path="external/libxml2" name="android_external_libxml2" remote="TeamWin" revision="android-14"/>
--->
     <project path="external/python3" name="android_external_python3" remote="TeamWin" revision="android-12.1"/>
-<!--
     <project path="external/sqlite" name="android_external_sqlite" remote="TeamWin" revision="android-14"/>
-    <project path="packages/modules/adb" name="android_packages_modules_adb" remote="TeamWin" revision="android-14"/>
     <project path="system/core" name="android_system_core" remote="TeamWin" revision="android-14"/>
     <project path="system/libhidl" name="android_system_libhidl" remote="TeamWin" revision="android-14"/>
-    <project path="system/libhwbinder" name="android_system_libhwbinder" remote="TeamWin" revision="android-14"/>
     <project path="system/security" name="android_system_security" remote="TeamWin" revision="android-14"/>
     <project path="system/update_engine" name="android_system_update_engine" remote="TeamWin" revision="android-14"/>
     <project path="system/vold" name="android_system_vold" remote="TeamWin" revision="android-14"/>
--->
+    <project path="cts" name="android_cts" remote="TeamWin" revision="android-14"/>
+    <project path="system/extras" name="android_system_extras" remote="TeamWin" revision="android-14"/>
 
     <!-- Use TeamWin custom vendor repo for build system -->
     <project path="vendor/twrp" name="android_vendor_twrp" remote="TeamWin" revision="android-14" />
@@ -91,15 +83,15 @@
     <!-- Include ntfs_3g for NTFS support -->
     <project path="external/ntfs-3g" name="android_external_ntfs-3g" remote="LineageOS" revision="lineage-21.0"/>
 
-    <!-- Include for legacy wrappedkey support, Hack for r17 -->
-    <project path="hardware/interfaces" name="android_hardware_interfaces" remote="LineageOS" revision="fe73af6086a9775e6d9b2820e0c01003e81f3b1b" />
+    <!-- Include for legacy wrappedkey support -->
+    <project path="hardware/interfaces" name="android_hardware_interfaces" remote="TeamWin" revision="android-14" />
 
     <!-- Include lineage-tools for lzma support -->
     <project path="prebuilts/tools-lineage" name="android_prebuilts_tools-lineage" remote="LineageOS" revision="lineage-21.0"/>
 
     <!-- Common qcom repos -->
     <project name="android_device_qcom_common" path="device/qcom/common" remote="TeamWin" revision="android-12.1" />
-    <project name="android_device_qcom_twrp-common" path="device/qcom/twrp-common" remote="TeamWin" revision="android-12.1" />
+    <project name="android_device_qcom_twrp-common" path="device/qcom/twrp-common" remote="TeamWin" revision="android-14" />
 
     <project name="android_hardware_qcom_bootctrl" path="hardware/qcom-caf/bootctrl" remote="LineageOS" revision="lineage-21.0-caf" />
     <project name="android_vendor_qcom_opensource_display-commonsys-intf" path="vendor/qcom/opensource/commonsys-intf/display" remote="LineageOS" revision="lineage-21.0" />
@@ -113,5 +105,7 @@
     <project name="android_prebuilts_gcc_linux-x86_x86_x86_64-linux-android-4.9" path="prebuilts/gcc/linux-x86/x86/x86_64-linux-android-4.9" groups="pdk,linux,x86" clone-depth="1" remote="LineageOS" revision="lineage-21.0" />
 -->
 
+<!-- LAST: Remove unused projects for minimal manifest -->
     <include name="remove-minimal.xml"/>
 </manifest>
+
